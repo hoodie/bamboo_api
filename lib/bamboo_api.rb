@@ -17,7 +17,7 @@ class BambooApi
   end
 
   def self.compose_url action, expand=nil
-    url = "https://#{@@end_point}/builds/rest/api/latest/#{action}.json?os_authType=basic&os_username=#{URI::encode( @@username )}&os_password=#{URI::encode( @@password )}"
+    url = "https://#{@@end_point}/rest/api/latest/#{action}.json?os_authType=basic&os_username=#{URI::encode( @@username )}&os_password=#{URI::encode( @@password )}"
     url += "&expand=#{expand}"
     url
   end
