@@ -14,10 +14,11 @@ class BambooApi
     @@end_point = options[ :end_point ]
     @@username = options[ :username ]
     @@password = options[ :password ]
+    @@max_results = options[ :max_results ] || 25
   end
 
   def self.compose_url action, expand=nil
-    url = "https://#{@@end_point}/rest/api/latest/#{action}.json?os_authType=basic&os_username=#{URI::encode( @@username )}&os_password=#{URI::encode( @@password )}"
+    url = "https://#{@@end_point}/rest/api/latest/#{action}.json?os_authType=basic&os_username=#{URI::encode( @@username )}&os_password=#{URI::encode( @@password )}&max-results=#{@@max_results}"
     url += "&expand=#{expand}"
     url
   end
